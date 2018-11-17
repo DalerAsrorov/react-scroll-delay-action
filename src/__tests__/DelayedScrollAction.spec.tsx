@@ -36,5 +36,15 @@ describe('Delayed Scroll Action component', () => {
     const component = mount(renderComponent({ parentNode: null }));
 
     expect(component.state('parentNode')).toBe(window);
+
+    component.unmount();
+  });
+
+  it('should preserve children content', () => {
+    const component = mount(renderComponent());
+
+    expect(component.find('p').prop('children')).toBe(MESSAGE);
+
+    component.unmount();
   });
 });

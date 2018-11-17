@@ -23,7 +23,7 @@ export default class DelayedScrollAction extends PureComponent<
 
     // update the state with current parentNode
     this.setState({
-      parentNode: getParent(parent)
+      parentNode: parent
     });
 
     // The event listeners are attached to the parent relative

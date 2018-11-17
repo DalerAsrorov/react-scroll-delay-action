@@ -58,11 +58,11 @@ export default class MultipleItemsExample extends PureComponent<Props, State> {
             onEnd={this.handleDelayedAction}
           >
             <article
+              key={i}
               style={{
                 ...boxStyle,
                 background: assignBackground(i === currentNodeIndex)
               }}
-              key={i}
             >
               {i + 1}
             </article>

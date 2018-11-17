@@ -29,7 +29,7 @@ Todo: (list of props).
       id="banner"
       callOnce={true}
     >
-      <article id="banner">{boxText}</article>
+      <article>{boxText}</article>
         {shouldCongratulate && <p style={{ textAlign: 'center' }}>Congratulations!/p>}
     </DelayedScrollAction>
   </div>

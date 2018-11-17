@@ -1,10 +1,10 @@
 declare interface ReactDelayedScrollProps {
-  id: any;
   delayTime: number;
-  onEnd: (id: any) => void;
-  onStart?: (id: any) => void;
+  id?: any;
   callOnce?: boolean;
   parentNode?: any | Window;
+  onEnd?: (id: any) => void;
+  onStart?: (id: any) => void;
 }
 
 declare interface ReactDelayedScrollState {

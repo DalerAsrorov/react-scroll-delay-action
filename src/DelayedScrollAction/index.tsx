@@ -36,7 +36,9 @@ export default class DelayedScrollAction extends PureComponent<
           }
           this.delayTimeout = setTimeout(() => {
             if (this.checkIfViewIsReached()) {
-              onEnd(id);
+              if (onEnd) {
+                onEnd(id);
+              }
             }
 
             if (!callOnce) {

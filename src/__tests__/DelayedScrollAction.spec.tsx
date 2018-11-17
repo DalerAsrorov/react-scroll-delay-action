@@ -31,6 +31,7 @@ describe('Delayed Scroll Action component', () => {
   it('should mount properly', () => {
     mount(renderComponent());
   });
+
   it('sets window as default parent if parentNode is unkown', () => {
     const component = mount(renderComponent({ parentNode: null }));
 

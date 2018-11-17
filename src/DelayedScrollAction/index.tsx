@@ -21,11 +21,14 @@ export default class DelayedScrollAction extends PureComponent<
     const { id, delayTime, callOnce, parentNode, onStart, onEnd } = this.props;
     const parent = getParent(parentNode);
 
+    // update the state with current parentNode
     this.setState({
       parentNode: getParent(parent)
     });
 
-    if (onEnd) {
+    // The event listeners are attached to the parent relative
+    // to which the child component should compute the visibility
+    if (parent) {
       parent.addEventListener('scroll', () => {
         if (this.checkIfViewIsReached() && !this.delayTimeout) {
           if (onStart) {

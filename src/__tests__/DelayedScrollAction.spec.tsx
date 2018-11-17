@@ -60,6 +60,8 @@ describe('Delayed Scroll Action component', () => {
       const domNode = component.getDOMNode();
 
       expect(getParent(domNode)).toBe(domNode);
+
+      component.unmount();
     });
   });
 });

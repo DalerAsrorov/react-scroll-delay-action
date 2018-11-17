@@ -1,44 +1,70 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# react-delayed-scroll-action
 
-## Available Scripts
+A component that contains a callback with the delay seconds after which the callback is called.
 
-In the project directory, you can run:
+## Props
 
-### `npm start`
+Todo: (list of props).
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Usage
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+- Attaching delayed actions, `onStart` and `onEnd`, after specified `delayTime`.
 
-### `npm test`
+```javascript
+<div style={{ height: '40000px' }}>
+  <h1 style={{ textAlign: 'center' }}>Scroll down!!!</h1>
+  <div style={boxStyle}>
+    <DelayedScrollAction
+      onStart={() =>
+        this.setState(() => {
+          shouldCongratulate: false,
+        })
+      }}
+      onEnd={() =>
+        this.setState({
+          shouldCongratulate: true,
+        })
+      }
+      delayTime={delayTime}
+      id="banner"
+      callOnce={true}
+    >
+      <article id="banner">{boxText}</article>
+        {shouldCongratulate && <p style={{ textAlign: 'center' }}>Congratulations!/p>}
+    </DelayedScrollAction>
+  </div>
+</div>
+```
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Attaching delayed actions for each item in collection.
 
-### `npm run build`
+```javascript
+<div style={wrapper}>
+  {items.map(({ id }) => (
+    <DelayedScrollAction
+      key={id}
+      id={id}
+      delayTime={3000}
+      onEnd={id => {
+        this.setState({
+          currentTarget: id
+        });
+      }}
+    >
+      <article
+        style={{
+          ...articleStyle,
+          background: id === currentTarget ? 'red' : 'white'
+        }}
+        key={id}
+      >
+        This article has ID #{id}.
+      </article>
+    </DelayedScrollAction>
+  ))}
+</div>
+```
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## License
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+[MIT](./LICENSE)

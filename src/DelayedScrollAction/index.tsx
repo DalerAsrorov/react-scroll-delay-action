@@ -30,6 +30,9 @@ export default class DelayedScrollAction extends PureComponent<
     // to which the child component should compute the visibility
     if (parent) {
       parent.addEventListener('scroll', () => {
+        // if the callbacks should be called only once
+        // after the element is visible on scroll event,
+        // we want to make sure that the timer wasn't triggered before
         if (this.checkIfViewIsReached() && !this.delayTimeout) {
           if (onStart) {
             onStart(id);
@@ -43,6 +46,8 @@ export default class DelayedScrollAction extends PureComponent<
               onEnd(id);
             }
 
+            // if callOnce is false, re-assign delayTimeout to undefined
+            // to allow the new scroll event trigger onStart and onEnd callbacks continuosly
             if (!callOnce) {
               this.delayTimeout = undefined;
             }

@@ -68,6 +68,14 @@ export default class DelayedScrollAction extends PureComponent<
   render() {
     const { children } = this.props;
 
-    return <span ref={ref => (this.nodeRef = ref)}>{children}</span>;
+    return React.Children.map(
+      children,
+      (child: any) =>
+        child
+          ? React.cloneElement(child, {
+              ref: (ref: any) => (this.nodeRef = ref)
+            })
+          : null
+    );
   }
 }

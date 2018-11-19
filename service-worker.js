@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/react-scroll-delay-action/precache-manifest.2a8581ab702e324c552507dee8181bbb.js"
+  "/react-scroll-delay-action/precache-manifest.72d5ec28f39ec9483578df5a5d8a9986.js"
 );
 
 workbox.clientsClaim();

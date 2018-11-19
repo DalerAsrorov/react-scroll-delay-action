@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import { getParent, isScrolledIntoView } from './utils';
+import { type } from 'os';
 
 export default class DelayedScrollAction extends PureComponent<
   ReactDelayedScrollProps,
@@ -28,7 +29,7 @@ export default class DelayedScrollAction extends PureComponent<
 
     // The event listeners are attached to the parent relative
     // to which the child component should compute the visibility
-    if (parent) {
+    if (parent && typeof parent === 'object') {
       parent.addEventListener('scroll', () => {
         // if the callbacks should be called only once
         // after the element is visible on scroll event,
@@ -54,6 +55,10 @@ export default class DelayedScrollAction extends PureComponent<
           }, delayTime);
         }
       });
+    } else {
+      throw new Error(
+        'Parent is either undefined or haveu unkown type. Please provide proper parent node.'
+      );
     }
   }
 

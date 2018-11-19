@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import DelayedScrollAction from '../DelayedScrollAction';
 import { getParent } from '../DelayedScrollAction/utils';
 
@@ -75,6 +75,18 @@ describe('Delayed Scroll Action component', () => {
       jest.runAllTimers();
 
       expect(onEnd).toHaveBeenCalledWith(id);
+    });
+
+    it('should throw an error if parent is not object, ie node', () => {
+      let error = null;
+
+      try {
+        shallow(renderComponent({ parentNode: 'str' }));
+      } catch (e) {
+        error = e;
+      }
+
+      expect(error).toBeInstanceOf(Error);
     });
   });
 

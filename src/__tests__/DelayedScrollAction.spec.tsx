@@ -49,6 +49,33 @@ describe('Delayed Scroll Action component', () => {
 
       component.unmount();
     });
+
+    it('should call onStart callback on scroll when element is mounted and visible', () => {
+      const onStart = jest.fn();
+      const id = '1';
+      const component = mount(renderComponent({ onStart, id }));
+
+      window.dispatchEvent(new Event('scroll'));
+
+      expect(onStart).toHaveBeenCalledWith(id);
+
+      component.unmount();
+    });
+
+    it('should call onEnd callback on scroll when element is mounted and visible', () => {
+      const onEnd = jest.fn();
+      const id = '1';
+      const wrapper = mount(renderComponent({ onEnd, id }));
+      const component = wrapper.instance();
+
+      jest.useFakeTimers();
+
+      window.dispatchEvent(new Event('scroll'));
+
+      jest.runAllTimers();
+
+      expect(onEnd).toHaveBeenCalledWith(id);
+    });
   });
 
   describe('utils', () => {

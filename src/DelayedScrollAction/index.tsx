@@ -39,12 +39,12 @@ export default class DelayedScrollAction extends PureComponent<
           }
 
           this.delayTimeout = setTimeout(() => {
-            // cancel timeout
-            clearTimeout(this.delayTimeout);
-
             if (onEnd && this.checkIfViewIsReached()) {
               onEnd(id);
             }
+
+            // cancel timeout
+            clearTimeout(this.delayTimeout);
 
             // if callOnce is false, re-assign delayTimeout to undefined
             // to allow the new scroll event trigger onStart and onEnd callbacks continuosly

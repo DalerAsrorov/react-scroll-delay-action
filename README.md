@@ -1,5 +1,7 @@
 # react-delayed-scroll-action
 
+[![CircleCI](https://circleci.com/gh/DalerAsrorov/react-scroll-delay-action.svg?style=svg)](https://circleci.com/gh/DalerAsrorov/react-scroll-delay-action)
+
 A component that contains a callback with the delay seconds after which the callback is called.
 
 ## Props

@@ -68,7 +68,6 @@ describe('Delayed Scroll Action component', () => {
       const onEnd = jest.fn();
       const id = '1';
       const component = mount(renderComponent({ onEnd, id }));
-      const instance = component.instance();
 
       jest.useFakeTimers();
 

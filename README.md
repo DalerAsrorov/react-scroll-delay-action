@@ -8,7 +8,7 @@ A component that contains a callback with the delay seconds after which the call
 ## Installation
 
 ```shell
-yarn add react-delayed-scroll-action
+yarn add react-scroll-delay-action
 ```
 
 ## Props

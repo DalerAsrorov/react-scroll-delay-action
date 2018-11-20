@@ -1,0 +1,27 @@
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
+version: 2
+jobs:
+  build:
+    docker:
+      # specify the version you desire here
+      - image: circleci/node:8.9.3
+
+      # Specify service dependencies here if necessary
+      # CircleCI maintains a library of pre-built images
+      # documented at https://circleci.com/docs/2.0/circleci-images/
+      # - image: circleci/mongo:3.4.4
+
+    test:
+      override:
+        - CI=true npm test -u
+      post:
+        - npm install -g codeclimate-test-reporter
+        - codeclimate-test-reporter < coverage/lcov.info
+
+    steps:
+      - checkout
+      - run: npm install install
+      - run: CI=true npm test -u

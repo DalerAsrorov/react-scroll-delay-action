@@ -1,8 +1,16 @@
 # react-delayed-scroll-action
 
+[![npm version](https://badge.fury.io/js/react-scroll-delay-action.svg)](https://badge.fury.io/js/react-scroll-delay-action)
+
 [![CircleCI](https://circleci.com/gh/DalerAsrorov/react-scroll-delay-action.svg?style=svg)](https://circleci.com/gh/DalerAsrorov/react-scroll-delay-action)
 
 A component that contains a callback with the delay seconds after which the callback is called.
+
+## Installation
+
+```shell
+yarn add react-delayed-scroll-action
+```
 
 ## Props
 

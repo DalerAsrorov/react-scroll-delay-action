@@ -1,7 +1,9 @@
-import React from 'react';
+import * as React from 'react';
 import { mount, shallow } from 'enzyme';
-import DelayedScrollAction from '../DelayedScrollAction';
-import { getParent } from '../DelayedScrollAction/utils';
+import ReactDelayedScrollAction from './';
+import { ReactDelayedScrollProps } from './index.d';
+import { getParent } from './utils';
+import '../setupTests';
 
 const generateProps = ({
   id = 'temp',
@@ -21,11 +23,11 @@ const generateProps = ({
 const MESSAGE = 'I am here!';
 
 const renderComponent = (props?: any) => (
-  <DelayedScrollAction {...generateProps(props)}>
+  <ReactDelayedScrollAction {...generateProps(props)}>
     <article>
       <p>{MESSAGE}</p>
     </article>
-  </DelayedScrollAction>
+  </ReactDelayedScrollAction>
 );
 
 describe('Delayed Scroll Action component', () => {

@@ -1,5 +1,5 @@
-import React, { PureComponent } from 'react';
-import DelayedScrollAction from './DelayedScrollAction';
+import * as React from 'react';
+import DelayedScrollAction from '../../src';
 
 const DEFAULT_COLOR = 'blue';
 const ACTIVE_COLOR = 'lightblue';
@@ -31,7 +31,10 @@ interface State {
   currentNodeIndex: number;
 }
 
-export default class MultipleItemsExample extends PureComponent<Props, State> {
+export default class MultipleItemsExample extends React.PureComponent<
+  Props,
+  State
+> {
   state = {
     currentNodeIndex: 0
   };
@@ -46,11 +49,12 @@ export default class MultipleItemsExample extends PureComponent<Props, State> {
   render() {
     const { currentNodeIndex } = this.state;
     const { delayTime, nBoxes } = this.props;
-    const items = [...Array(nBoxes).map((d, i) => i)];
+    const items = Array.apply(null, Array(nBoxes)).map((d: any, i: any) => i);
 
+    console.log(items);
     return (
       <React.Fragment>
-        {items.map((item, i) => (
+        {items.map((item: any, i: any) => (
           <DelayedScrollAction
             key={i}
             id={i}

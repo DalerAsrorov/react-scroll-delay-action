@@ -1,5 +1,5 @@
-import React from 'react';
-import DelayedScrollAction from './DelayedScrollAction';
+import * as React from 'react';
+import DelayedScrollAction from '../../src';
 
 interface Props {
   delayTime: number;

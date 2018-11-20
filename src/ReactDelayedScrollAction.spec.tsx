@@ -67,8 +67,8 @@ describe('Delayed Scroll Action component', () => {
     it('should call onEnd callback on scroll when element is mounted and visible', () => {
       const onEnd = jest.fn();
       const id = '1';
-      const wrapper = mount(renderComponent({ onEnd, id }));
-      const component = wrapper.instance();
+      const component = mount(renderComponent({ onEnd, id }));
+      const instance = component.instance();
 
       jest.useFakeTimers();
 
@@ -77,6 +77,8 @@ describe('Delayed Scroll Action component', () => {
       jest.runAllTimers();
 
       expect(onEnd).toHaveBeenCalledWith(id);
+
+      component.unmount();
     });
 
     it('should throw an error if parent is not object, ie node', () => {

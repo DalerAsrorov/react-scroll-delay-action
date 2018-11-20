@@ -1,6 +1,6 @@
 {
   "name": "react-scroll-delay-action",
-  "version": "0.0.18",
+  "version": "0.1.0",
   "description": "A React wrapper component that triggers callbacks when element right after element is visible on before or during scroll event and right after the delay time has passed given that the element is still visibile in the screen.",
   "main": "index.js",
   "types": "./src/index.d.ts",

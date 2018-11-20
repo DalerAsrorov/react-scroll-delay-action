@@ -12,12 +12,12 @@ const Menu = () => (
   <nav>
     <ul>
       <li>
-        <Link to="/multiple-items">
+        <Link to="/multiple-items/">
           Multiple items - delayed actions for collection of elements.
         </Link>
       </li>
       <li>
-        <Link to="/single-banner">
+        <Link to="/single-banner/">
           Scroll event attached to a single element with delayed action.
         </Link>
       </li>
@@ -29,7 +29,7 @@ class App extends React.Component<{}, {}> {
   render() {
     return (
       <div style={wrapper}>
-        <Router basename={process.env.PUBLIC_URL}>
+        <Router basename="/">
           <React.Fragment>
             <Route exact path="/" component={Menu} />
             <Route

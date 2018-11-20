@@ -1,10 +1,15 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const htmlWebpackPlugin = new HtmlWebpackPlugin({
+  template: path.join(__dirname, 'demos/src/index.html'),
+  filename: './index.html'
+});
 
 module.exports = {
-  entry: './demos/src/index.tsx',
+  entry: path.join(__dirname, 'demos/src/index.tsx'),
   output: {
-    filename: 'bundle.js',
-    path: __dirname + '/demos/src/'
+    path: path.join(__dirname, 'demos/dist'),
+    filename: 'bundle.js'
   },
 
   // Enable sourcemaps for debugging webpack's output.
@@ -25,9 +30,9 @@ module.exports = {
     ]
   },
 
+  plugins: [htmlWebpackPlugin],
+
   devServer: {
-    contentBase: path.join(__dirname, 'demos/src'),
-    compress: true,
     port: 3000
   }
 };

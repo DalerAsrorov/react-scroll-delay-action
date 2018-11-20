@@ -3,7 +3,7 @@
 [![npm version](https://badge.fury.io/js/react-scroll-delay-action.svg)](https://badge.fury.io/js/react-scroll-delay-action)
 [![CircleCI](https://circleci.com/gh/DalerAsrorov/react-scroll-delay-action.svg?style=svg)](https://circleci.com/gh/DalerAsrorov/react-scroll-delay-action)
 
-A component that contains a callback with the delay seconds after which the callback is called.
+A React wrapper component that triggers callbacks (`onStart` and `onEnd`) right after element is visible during scroll event and right after the delay time has passed since the element first became visible on scroll. The second callback (`onEnd`) is exposed only when the element is still visible after `delayTime` seconds has passed.
 
 ## Installation
 
